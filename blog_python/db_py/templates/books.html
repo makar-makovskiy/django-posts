@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Мои любимые книги
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-5">Мои любимые книги</h1>
+
+<div class="card-columns">
+    <div class="row">
+    {% for book in books %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-header fw-bold">{{ book.title }}</div>
+            <div class="card-body">
+                <p class="badge bg-primary text-wrap">{{ book.author.name }}</p>
+                <p class="card-text">Жанр: <strong>{{ book.genre }}</strong></p>
+                <p class="card-text">Год издания: {{ book.year }}</p>
+                <p class="card-text">Страниц: {{ book.pages }}</p>
+                <p class="card-text">Страна автора: {{ book.author.country }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
